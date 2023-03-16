@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -26,12 +27,17 @@ class MenuFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
         menuBinding = FragmentMenuBinding.inflate(layoutInflater)
         menuBinding.textView.setOnClickListener {
             navController.navigate(R.id.to_dictionary)
         }
         return menuBinding.root
+    }
 
+    override fun onDestroyView() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.show()
+        super.onDestroyView()
     }
 
     companion object {

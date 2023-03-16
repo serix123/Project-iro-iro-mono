@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_menu" >
         <action
             android:id="@+id/to_dictionary"
-            app:destination="@id/dictionaryFragment" />
+            app:destination="@id/dictionaryFragment"
+            app:enterAnim="@anim/to_right"
+            app:popExitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/dictionaryFragment"
