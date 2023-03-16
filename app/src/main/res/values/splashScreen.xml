@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AndroidApp.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#87D6CD</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_app_icon_24</item>
+        <item name="postSplashScreenTheme">@style/Theme.AndroidApp</item>
+    </style>
+</resources>
