@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.jas.androidapp.core.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/to_dictionary"
+            app:destination="@id/dictionaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dictionaryFragment"
+        android:name="com.jas.androidapp.feature.dictionary.presentation.DictionaryFragment"
+        android:label="fragment_dictionary"
+        tools:layout="@layout/fragment_dictionary" />
+</navigation>
