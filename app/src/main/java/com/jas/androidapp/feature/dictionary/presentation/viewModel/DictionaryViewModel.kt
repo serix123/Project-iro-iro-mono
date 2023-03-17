@@ -8,12 +8,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class DictionaryViewModel: ViewModel() {
-    private val _splashLoading = MutableStateFlow(true )
+    private val _splashLoading = MutableStateFlow(false )
     val splashLoading = _splashLoading.asStateFlow()
     init {
         viewModelScope.launch {
             delay(3000L)
-            _splashLoading.value = false
+            _splashLoading.value = true
         }
     }
 }
