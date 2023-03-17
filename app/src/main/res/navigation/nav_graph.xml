@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/dictionaryFragment"
-        android:name="com.jas.androidapp.feature.dictionary.presentation.DictionaryFragment"
+        android:name="com.jas.androidapp.feature.dictionary.presentation.ui.DictionaryFragment"
         android:label="fragment_dictionary"
         tools:layout="@layout/fragment_dictionary" />
 </navigation>
