@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.jas.androidapp.R
 import com.jas.androidapp.databinding.FragmentMenuBinding
@@ -16,7 +17,7 @@ import com.jas.androidapp.databinding.FragmentMenuBinding
 class MenuFragment : Fragment() {
 
     private lateinit var navController: NavController
-    private lateinit var menuBinding: FragmentMenuBinding
+    private var menuBinding: FragmentMenuBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,15 +30,23 @@ class MenuFragment : Fragment() {
     ): View? {
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
         menuBinding = FragmentMenuBinding.inflate(layoutInflater)
-        menuBinding.textView.setOnClickListener {
-            navController.navigate(R.id.to_dictionary)
+        menuBinding?.let {
+            it.textView.setOnClickListener {
+                val extras = FragmentNavigatorExtras(menuBinding!!.imageView to "imageBig",menuBinding!!.textView to "textBig")
+                navController.navigate(R.id.to_dictionary, null, null, extras)
+            }
+            it.imageView.setOnClickListener {
+                val extras = FragmentNavigatorExtras(menuBinding!!.imageView to "imageBig",menuBinding!!.textView to "textBig")
+                navController.navigate(R.id.to_dictionary, null, null, extras)
+            }
         }
-        return menuBinding.root
+        return menuBinding!!.root
     }
 
     override fun onDestroyView() {
-        (requireActivity() as AppCompatActivity).supportActionBar?.show()
+//        (requireActivity() as AppCompatActivity).supportActionBar?.show()
         super.onDestroyView()
+        menuBinding = null
     }
 
     companion object {
